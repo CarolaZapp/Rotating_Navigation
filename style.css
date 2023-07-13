@@ -1,0 +1,197 @@
+/* architects-daughter-regular - latin */
+@font-face {
+  font-family: "Architects Daughter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/architects-daughter-v18-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("./fonts/architects-daughter-v18-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./fonts/architects-daughter-v18-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("./fonts/architects-daughter-v18-latin-regular.woff") format("woff"),
+    /* Modern Browsers */
+      url("./fonts/architects-daughter-v18-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("./fonts/architects-daughter-v18-latin-regular.svg#ArchitectsDaughter")
+      format("svg"); /* Legacy iOS */
+}
+
+
+/* montserrat-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/montserrat-v25-latin-regular.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/montserrat-v25-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/montserrat-v25-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/montserrat-v25-latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/montserrat-v25-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/montserrat-v25-latin-regular.svg#Montserrat") format("svg"); /* Legacy iOS */
+}
+
+:root {
+  /* background colors */
+  --bg-one: rgb(20,113,180);
+  --bg-two: rgb(250,250,250);
+  --bg-three: rgb(158,204,22);
+ 
+  /* font colors */
+  --font-one:  rgb(20,113,180);
+  --font-two: rgb(250,250,250);
+  --font-three: rgb(158,204,22);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Architects Daughter, sans-serif;
+  background-color: var(--bg-one);
+  color: var(--font-one);
+  overflow-x:hidden;
+  margin:0;
+}
+
+.container {
+  background-color: var(--bg-two);
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.container.show-nav{
+  transform: rotate(-15deg)
+}
+
+.circle-container {
+  position:fixed;
+  top:-100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: var(--bg-three);
+  height: 200px;
+  width:200px;
+  border-radius: 50%;
+  position: relative;
+  transition:  transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top:50%;
+  left:50%;
+  height: 100px;
+  background: transparent;
+  border:0;
+  font-size: 26px;
+  color:var(--font-two);
+}
+
+.circle button:focus {
+  outline:none;
+}
+
+.circle button#open {
+ left:60%;
+}
+
+.circle button#close {
+  top:60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+  color: var(--font-one);
+}
+
+.container.show-nav +nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s; 
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left:0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left:30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: var(--font-two);
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav ul li +li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+nav ul li +li +li {
+  margin-left: 30px;
+  transform: translateX(-150%);
+}
+
+nav a {
+  color: var(--font-two);
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+nav a:hover {
+  color: var(--font-three);
+  font-weight: bold;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin:0;
+}
+
+.content small {
+  color:#555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
